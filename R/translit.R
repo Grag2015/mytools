@@ -6,8 +6,8 @@
 #' @author Grag2015
 #' @description converts text string in cyrillic into latin text string (letter by letters)
 #' digits and latin symbols stay at place, space is replaced on "space", other symbols are deleted
-#' @export stringr
-#' @import
+#' @export
+#' @import stringr
 #' @examples
 #' str <- "моя жизнь"
 #' translit(str)
@@ -56,6 +56,7 @@ translit <- function(str, space="_"){
             )
         }
     }
+    str <- as.character(str)
     res <- data.frame(res="",stringsAsFactors = F)
     for (j in 1:length(str)) {
         n <- nchar(str[j])
