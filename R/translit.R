@@ -1,6 +1,6 @@
 #' converts text string in cyrillic into latin text string (letter by letters)
 #'
-#' @param "str" is string in cyrillic
+#' @param "str" is string or vector of strings in cyrillic
 #' @param "space" is string to replace space, "_" - by default
 #' @return latin text string
 #' @author Grag2015
@@ -56,17 +56,18 @@ translit <- function(str, space="_"){
             )
         }
     }
-    n <- nchar(str)
-    str_t <- str_trim(str)
-    str_t <- tolower(str)
-    str_res <- ""
-    for (i in 1:n) {
-        s <- substr(str_t,i,i)
-        str_res <- paste0(str_res,tolat(s))
+    res <- data.frame(res="",stringsAsFactors = F)
+    for (j in 1:length(str)) {
+        n <- nchar(str[j])
+        str_t <- str_trim(str[j])
+        str_t <- tolower(str[j])
+        str_res <- ""
+        for (i in 1:n) {
+            s <- substr(str_t,i,i)
+            str_res <- paste0(str_res,tolat(s))
+        }
+        res[j,1] <- str_res
     }
-    str_res
+    res
 }
-
-
-
 

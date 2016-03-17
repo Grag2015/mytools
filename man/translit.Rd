@@ -7,7 +7,7 @@
 translit("моя жизнь", space = "_")
 }
 \arguments{
-\item{str}{is string in cyrillic}
+\item{str}{is string or vector of strings in cyrillic}
 \item{space}{is string to replace space, "_" - by default}
 }
 \value{
