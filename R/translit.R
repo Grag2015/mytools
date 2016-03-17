@@ -57,7 +57,7 @@ translit <- function(str, space="_"){
         }
     }
     str <- as.character(str)
-    res <- data.frame(res="",stringsAsFactors = F)
+    res <- character(0)
     for (j in 1:length(str)) {
         n <- nchar(str[j])
         str_t <- str_trim(str[j])
@@ -67,7 +67,7 @@ translit <- function(str, space="_"){
             s <- substr(str_t,i,i)
             str_res <- paste0(str_res,tolat(s))
         }
-        res[j,1] <- str_res
+        res[j] <- str_res
     }
     res
 }
